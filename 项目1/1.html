@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+
+        .container{
+            width: 40%;
+            margin: 20px auto;
+        }
+        .common{
+            width:230px;
+            height: 30px;
+        }
+        span{
+            display:inline-block;
+            width: 150px;
+
+            text-align: right;
+        }
+        div{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<form class="container">
+    <!-- ********* Begin ********* -->
+    <span>用户名：</span><input type="text"/>
+    <span>昵称：</span><input type="text"/>
+    <span>性别:</span>
+    <input type="radio" id="男" name="性别"/><label for="男">男</label>
+    <input type="radio" id="女" name="性别"/><label for="女">女</label>
+    <input type="radio" id="保密" name="性别"/><label for="保密">保密</label>
+    <span>教育程度：</span>
+    <select>
+        <option>高中</option>
+        <option>中专</option>
+        <option>大专</option>
+        <option selected="selected">本科</option>
+        <option>硕士</option>
+        <option>博士</option>
+        <option>其他</option>
+    </select>
+    <span>婚姻状况：</span>
+    <input type="radio" id="未婚" name="婚姻状况" checked="checked"/><label for="未婚">未婚</label>
+    <input type="radio" id="已婚" name="婚姻状况"/><label for="已婚">已婚</label>
+    <input type="radio" id="保密" name="婚姻状况"/><label for="保密">保密</label>
+    <span>兴趣爱好：</span>
+    <input type="checkbox" id="踢足球" name="兴趣爱好"/><label for="踢足球">踢足球</label>
+    <input type="checkbox" id="打篮球" name="兴趣爱好"/><label for="打篮球">打篮球</label>
+    <input type="checkbox" id="看电影" name="兴趣爱好" checked="checked"/><label for="看电影">看电影</label>
+    <!-- ********* End ********* -->
+</form>
+</body>
+</html>

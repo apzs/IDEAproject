@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <style>
+        #submit{
+            margin-right: 15px;
+            margin-left: 12px;
+            width: 80px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var reChange =  document.getElementById("reCharge");
+            reChange.onclick = function () {
+                location.reload();
+            }
+            var back =  document.getElementById("back");
+            back.onclick = function () {
+                history.back();
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div class="container" style="width: 500px;">
+    <h3 style="text-align: center;">用户信息</h3>
+    <form class="form-horizontal" action="${pageContext.request.contextPath}/addUserMessage?userType=root" method="post">
+        <input type="text" hidden name="id" value="${id}"/>
+        <input type="text" hidden name="userType" value="${userType}"/>
+        <div class="form-group">
+            <label class="col-xs-2 control-label" for="inputEmail3">姓名：</label>
+            <div class="col-xs-10">
+                <input class="form-control" id="inputEmail3" type="text" name="name" value="${userMessage.name}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-2 control-label">性别：</label>
+            <label style="width: 10px"></label>
+                <input type="radio" name="gender" value="男">
+                <label style="width: 50px;line-height: 30px">男</label>
+                <input type="radio" name="gender" value="女">
+                <label style="line-height: 30px">女</label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2 control-label" style="padding: 0;line-height: 32px">电话号码：</label>
+            <div class="col-xs-10">
+                <input class="form-control" type="text" name="tel" value="${userMessage.tel}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2 control-label">QQ：</label>
+            <div class="col-xs-10">
+                <input class="form-control" type="text" name="qq" value="${userMessage.qq}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2 control-label" style="padding: 0;line-height: 32px">E-mail：</label>
+            <div class="col-xs-10">
+                <input class="form-control" type="text" name="e_mail" value="${userMessage.e_mail}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2 control-label" style="padding: 0;line-height: 32px">详细地址：</label>
+            <div class="col-xs-10">
+                <textarea placeholder="详细地址" name="address" value="${userMessage.address}"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-10">
+                <label class="col-sm-2 control-label" style="margin-right: 30px"></label>
+                <input type="submit" class="btn btn-success" id="submit" value="确定"></input>
+                <input type="button" class="btn" style="margin-right: 12px;width: 80px;" id="reCharge" value="重置"></input>
+                <input type="button" class="btn" style="width: 80px;" id="back" value="返回"></input>
+            </div>
+        </div>
+    </form>
+</div>
+<div>
+</div>
+</body>
+</html>

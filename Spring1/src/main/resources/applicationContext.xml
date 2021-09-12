@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    1）当scope的取值为singleton时
+        Bean的实例化个数：1个
+        Bean的实例化时机：当Spring核心文件被加载时，实例化配置的Bean实例
+        2）当scope的取值为prototype时
+        Bean的实例化个数：多个
+        Bean的实例化时机：当调用getBean()方法时实例化Bean
+    -->
+<!--无参构造-->
+    <bean id="userDao" class="login.dao.impl.UserDaoImpl" scope="singleton"></bean>
+
+<!--
+ <bean id="userDao" class="login.dao.impl.UserDaoImpl" scope="singleton" init-method="init" destroy-method="destroy"></bean>
+-->
+<!--
+    静态工厂方法
+    <bean id="userDao" class="login.dao.StaticFactoryBean" factory-method="createUserDao1"></bean>
+    工厂非静态方法(先创建工厂对象，再指定工厂方法)
+    <bean id="beanFactory" class="login.dao.StaticFactoryBean"></bean>
+    <bean id="userDao" factory-bean="beanFactory" factory-method="createUserDao2"></bean>
+-->
+
+    <bean id="userService" class="login.service.impl.UserServiceImpl" scope="singleton">
+<!--    name的值为对应的set方法，ref为对应的id-->
+        <property name="userDao" ref="userDao"></property>
+    </bean>
+<!--
+    第二种更加简单的set方法注入，需要导入p命名空间
+    <bean id="userService" class="UserServiceImpl" p:userDao-ref="userDao"/>
+-->
+    <!--
+        <bean id="userService" class="UserServiceImpl" scope="singleton">
+        name为构造方法的参数名，ref为对应的id
+        <constructor-arg name="userDao" ref="userDao"></constructor-arg>
+         </bean>
+        -->
+
+    <bean id="u1" class="login.domain.User"/>
+    <bean id="u2" class="login.domain.User"/>
+    <bean id="u3" class="login.domain.User"/>
+    <bean id="userService2" class="login.service.impl.UserServiceImpl2">
+        <property name="age" value="21"></property>
+        <property name="company" value="阿里"></property>
+        <property name="userDao" ref="userDao"/>
+        <property name="properties">
+            <props>
+                <prop key="111">aaa</prop>
+                <prop key="222">bbb</prop>
+                <prop key="ccc">ccc</prop>
+            </props>
+        </property>
+        <property name="list">
+            <list>
+                <value>aaa</value>
+                <value>bbb</value>
+                <value>ccc</value>
+            </list>
+        </property>
+        <property name="list2">
+            <list>
+                <ref bean="u1"/>
+                <ref bean="u2"/>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="111" value-ref="u1"/>
+                <entry key="222" value-ref="u2"/>
+            </map>
+        </property>
+     </bean>
+
+<!--    引入外部配置文件-->
+    <import resource="applicationContext-mysql.xml"/>
+</beans>

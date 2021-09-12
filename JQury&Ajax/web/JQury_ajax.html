@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function (){
+            $("#btn").click(function () {
+                    $.ajax({
+                        url:"ajaxServlet",//请求路径
+                        type:"POST",      //请求方式
+                        // data:"username=jack&age=23",//请求参数
+                        data:{"username":"jack","age":23},
+                        //响应成功后的回调函数
+                        success:function (data){
+                            alert(data);
+                        },
+                        //响应出现错误会执行的回调函数
+                        error:function (){
+                            alert("错误...");
+                        },
+                        dataType:"text"//设置接受到的响应数据的格式
+                    })
+            }
+
+            );
+
+        });
+    </script>
+</head>
+<body>
+    <input id="btn" type="button" value="发送异步请求">
+    <!--        第二个框输入的内容不会清空（即发送的是异步请求）-->
+    <input type="text">
+</body>
+</html>

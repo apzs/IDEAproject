@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function (){
+            $("#btn").click(function () {
+                //语法: $.get(url,[data],[callback],[type])
+                $.get("ajaxServlet",{username:"rose"},function (data) {
+                    alert(data);
+                },"text")
+            })
+        });
+    </script>
+</head>
+<body>
+    <input id="btn" type="button" value="发送异步请求">
+    <!--        第二个框输入的内容不会清空（即发送的是异步请求）-->
+    <input type="text">
+</body>
+</html>

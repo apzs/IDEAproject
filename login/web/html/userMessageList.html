@@ -1,0 +1,126 @@
+<html>
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="../js/bootstrap.min.js"></script>
+    <style>
+        th {
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var selectAll = document.getElementById("selectAll");
+            selectAll.onclick = function () {
+                var selects = document.getElementsByName("select");
+                for (let i = 0; i < selects.length; i++) {
+                    selects[i].checked = this.checked;
+                }
+            }
+
+            var add = document.getElementById("add");
+            add.onclick = function (){
+                location.href = "addUser.html";
+            }
+
+            var add = document.getElementById("deleteChecked");
+            add.onclick = function (){
+                if (confirm("您确定要删除所选择的用户吗？")){
+                    location.href = "addUser.html";
+                }
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1 style="text-align: center">用户信息表</h1>
+    <form class="form-inline" style="float: left">
+        <div class="form-group">
+            <label for="name">姓名</label>
+            <input class="form-control" id="name" type="text">
+        </div>
+        <div class="form-group">
+            <label for="tel">电话号码</label>
+            <input class="form-control" id="tel" type="tel">
+        </div>
+        <div class="form-group">
+            <label for="e_mail">邮箱</label>
+            <input class="form-control" id="e_mail" type="email">
+        </div>
+        <button class="btn btn-default" type="submit">查询</button>
+    </form>
+    <div style="float: right">
+        <input class="btn btn-primary" style="width: 100px;" id="add" type="button" src="1.html" value="添加联系人">
+        <input class="btn btn-primary" style="width: 100px;" id="deleteChecked" type="button" value="删除选中">
+    </div>
+    <table class="table table-bordered table-hover">
+        <tr class="warning">
+            <th><input id="selectAll" type="checkbox"></th>
+            <th width="50px">id</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>电话号码</th>
+            <th>QQ号</th>
+            <th>邮箱</th>
+            <th></th>
+        </tr>
+
+        <tr>
+            <td><input name="select" type="checkbox"></td>
+            <td width="50px">id</td>
+            <td>${userMessage.name}</td>
+            <td>${userMessage.gender}</td>
+            <td>${userMessage.tel}</td>
+            <td>${userMessage.qq}</td>
+            <td>${userMessage.e_mail}</td>
+            <td>
+                <a class="btn btn-default" href="javaScrip:void(0);">修改</a>
+                <a class="btn btn-default"  href="javaScrip:void(0);">删除</a>
+            </td>
+        </tr>
+
+        <tr>
+            <td><input name="select" type="checkbox"></td>
+            <td width="50px">id</td>
+            <td>${userMessage.name}</td>
+            <td>${userMessage.gender}</td>
+            <td>${userMessage.tel}</td>
+            <td>${userMessage.qq}</td>
+            <td>${userMessage.e_mail}</td>
+            <td>
+                <a class="btn-default btn-sm" href="javaScrip:void(0);">修改</a>
+                <a class="btn-default btn-sm" href="javaScrip:void(0);">删除</a>
+            </td>
+        </tr>
+
+    </table>
+    <nav>
+        <ul class="pagination">
+            <li>
+                <a aria-label="Previous" href="#">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li class="active"><a href="#">2 <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a aria-label="Next" href="#">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>

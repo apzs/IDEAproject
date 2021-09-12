@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>省份与省市级联</title>
+</head>
+<script language="javascript" src="province.js" type="text/javascript" charset="utf-8"></script>
+<body onload='getProvince()'>
+<select id="province" onchange="chooseProvince(this)">
+    <option value="1">请选择省</option>
+</select>
+<select id="city" onchange="chooseCity(this)">
+    <option value="2">请选择市</option>
+</select>
+<select id="area">
+    <option value="3">请选择区</option>
+</select>
+</body>
+</html>

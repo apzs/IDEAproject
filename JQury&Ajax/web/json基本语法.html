@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //1.定义基本格式
+        var person = {"name":"张三",age:23,'gender':true};
+        //张三
+        var name1 = person.name;
+        var name2 = person["name"];
+        for (var key in person){
+            // key为String类型这样相当于person."name" 获取不到
+            // alert(key + ":" + person.key);
+            alert(key + ":" + person[key]);
+        }
+
+        //2.嵌套格式 {} ----> []
+        var persons = {
+            "person":[
+                {"name":"张三","age":23,"gender":true},
+                {"name":"李四","age":26,"gender":false},
+                {"name":"王五","age":18,"gender":true}
+            ]
+        };
+        //王五
+        let name3 = persons.person[2].name;
+        var person1 = persons.person;
+        for (var i = 0; i < person1.length; i++) {
+            var p = person1[i];
+            for (var key in p){
+                alert(key + ":" + p[key]);
+            }
+        }
+        
+
+        //3.嵌套格式 [] ----> {}
+        var ps = [
+            {"name":"张三","age":23,"gender":true},
+            {"name":"李四","age":26,"gender":false},
+            {"name":"王五","age":18,"gender":true}
+        ];
+        //王五
+        let name4 = ps[2].name;
+        for (var i = 0; i < ps.length; i++) {
+            var p = ps[i];
+            for (var key in p){
+                alert(key + ":" + p[key]);
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

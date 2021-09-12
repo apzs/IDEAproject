@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>成绩表</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table,div{
+            margin-left: 40%;
+        }
+        tr{
+            text-align: center;
+        }
+        #selectAll{
+            margin-left: 30%;
+        }
+        a{
+            text-decoration: none;
+        }
+        .over{
+            background-color: pink;
+        }
+        .out{
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript">
+
+        window.onload = function () {
+            //全选
+            document.getElementById("selectAll").onclick = function (){
+                var cbs = document.getElementsByName("cb");
+                for (var i = 0; i < cbs.length; i++) {
+                    cbs[i].checked = true;
+                }
+            }
+            document.getElementById("all").onclick = function (){
+                var cbs = document.getElementsByName("cb");
+                for (var i = 0; i < cbs.length; i++) {
+                    cbs[i].checked = this.checked;
+                }
+            }
+            //全不选
+            document.getElementById("unSelectAll").onclick = function (){
+                var cbs = document.getElementsByName("cb");
+                for (var i = 0; i < cbs.length; i++) {
+                    cbs[i].checked = false;
+                }
+            }
+            //反选
+            document.getElementById("selectRev").onclick = function (){
+                var cbs = document.getElementsByName("cb");
+                for (var i = 0; i < cbs.length; i++) {
+                    cbs[i].checked = !cbs[i].checked;
+                }
+            }
+            //鼠标移动到元素上,改变颜色
+            var trs = document.getElementsByTagName("tr");
+            for (var i = 0; i < trs.length; i++) {
+                trs[i].onmouseover = function (){
+                    this.className = "over";
+                    //设置部分通用属性
+                    // this.style.height = '50px';
+                    // this.setAttribute('height',50);
+                    // this.setAttribute('height','50px');
+                    // this.setAttribute('style', 'height: 50px');
+                    // this.style.setProperty('height', '50px');
+                    // this.setProperty('height','50px')这种方式不行
+                }
+                trs[i].onmouseout = function (){
+                    this.className = "out";
+                }
+            }
+
+            //表格添加元素
+            var add = document.getElementById("add");
+            add.onclick = function (){
+                //获取输入框内的值
+                var name = document.getElementById("name").value;
+                var gender = document.getElementById("gender").value;
+                var grade = document.getElementById("grade").value;
+                //创造内容为复选框的td标签
+                var td_checkbox = document.createElement("td");
+                var text_input = document.createElement("input");
+                text_input.type = "checkbox";
+                text_input.name = "cb";
+                td_checkbox.appendChild(text_input);
+                //创造内容为姓名的td标签
+                var td_name = document.createElement("td");
+                var text_name = document.createTextNode(name);
+                td_name.appendChild(text_name);
+                //创造内容为性别的td标签
+                var td_gender = document.createElement("td");
+                var text_gender = document.createTextNode(gender);
+                td_gender.appendChild(text_gender);
+                //创造内容为成绩的td标签
+                var td_grade = document.createElement("td");
+                var text_grade = document.createTextNode(grade);
+                td_grade.appendChild(text_grade);
+                //创建内容为a标签的td标签
+                // <td><a href="javascript:void(0);" onClick="del(this)">删除</a></td>
+                var td_a = document.createElement("td");
+                var a_1 = document.createElement("a");
+                var text_a = document.createTextNode("删除");
+                a_1.appendChild(text_a);
+                a_1.href = "javascript:void(0);";
+                a_1.setAttribute("onclick","del(this)");
+                td_a.appendChild(a_1);
+
+                var tr_1 = document.createElement("tr");
+                tr_1.appendChild(td_checkbox);
+                tr_1.appendChild(td_name);
+                tr_1.appendChild(td_gender);
+                tr_1.appendChild(td_grade);
+                tr_1.appendChild(td_a);
+                tr_1.onmouseover = function (){
+                    this.className = "over";
+                }
+                tr_1.onmouseout = function (){
+                    this.className = "out";
+                }
+                var table1 = document.getElementById("table1");
+                table1.appendChild(tr_1);
+            }
+        }
+
+       function del(obj){
+            //获取table标签
+            var table = obj.parentNode.parentNode.parentNode;
+            //获取该超链接所在的tr标签
+           var tr = obj.parentNode.parentNode;
+           table.removeChild(tr);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <label>姓名</label><input type="text" id="name" style="width: 50px">
+        <label>性别</label><input type="text" id="gender" style="width: 50px">
+        <label>成绩</label><input type="text" id="grade" style="width: 50px">
+        <input type="submit" id="add" value="添加">
+    </div>
+    <br>
+    <div>
+        <input type="button" id="selectAll" value="全选" style="margin: 0 auto">
+        <input type="button" id="unSelectAll" value="全不选">
+        <input type="button" id="selectRev" value="反选">
+    </div>
+`   <br>
+    <table id="table1" border="1" cellspacing="0" cellpadding="0" width="300">
+        <caption>软工成绩表</caption>
+
+        <tr>
+            <th><input type="checkbox" name="cb" id="all"></th>
+            <th>姓名</th>
+            <th>姓别</th>
+            <th>成绩</th>
+            <th><a href="javascript:void(0);" onclick="del(this)"></a></th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="cb"></td>
+            <td>张三</td>
+            <td>男</td>
+            <td>19</td>
+            <td><a href="javascript:void(0);" onclick="del(this)">删除</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="cb"></td>
+            <td>李四</td>
+            <td>女</td>
+            <td>18</td>
+            <td><a href="javascript:void(0);" onclick="del(this)">删除</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="cb"></td>
+            <td>王五</td>
+            <td>女</td>
+            <td>21</td>
+            <td><a href="javascript:void(0);" onclick="del(this)">删除</a></td>
+        </tr>
+    </table>
+</body>
+</html>

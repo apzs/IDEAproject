@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            var cities = $("#city li");
+            //第一种遍历方式
+           for (var i=0; i < cities.length; i++){
+               // if ("上海" == cities[i].innerHTML){
+               //     break;    //结束循环
+               //     continue；//结束本次循环，进入下一次循环
+               // }
+               //  alert(i + " " + cities[i].innerHTML);
+           }
+
+           //第二种遍历方式
+            cities.each(function () {
+                // alert(this.innerHTML)
+                // alert($(this).html());
+            });
+           
+           //第三种遍历方式
+            cities.each(function (index,element) {
+                if ("上海" == element.innerHTML){
+                     return false;  //如果此function返回false,则结束循环 （break）
+                    return true; //如果此返回true,则结束本次循环，进入下一次循环 （continue）
+                }
+                alert(index + " " + element.innerHTML)
+            })
+        })
+    </script>
+</head>
+<body>
+    <ul id="city">
+        <li>北京</li>
+        <li>天津</li>
+        <li>上海</li>
+        <li>重庆</li>
+    </ul>
+</body>
+</html>

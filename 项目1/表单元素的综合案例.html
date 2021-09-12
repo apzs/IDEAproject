@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+
+        .container{
+            width: 40%;
+            margin: 20px auto;
+        }
+        .common{
+            width:230px;
+            height: 30px;
+        }
+        span{
+            display:inline-block;
+            width: 150px;
+
+            text-align: right;
+        }
+        div{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<form class="container">
+    <!-- ********* Begin ********* -->
+    <div>
+        <span class="common">用户名：</span><input type="text" class="common"/>
+    </div>
+    <div>
+        <span class="common">昵称：</span><input type="text" class="common"/>
+    </div>
+    <div>
+        <span>性别：</span>
+        <input type="radio" id="male" name="sex"/><label for="male">男</label>
+        <input type="radio" id="female" name="sex"/><label for="female">女</label>
+        <input type="radio" id="other" name="sex" disabled="disabled"/><label for="other">保密</label>
+    </div>
+    <div>
+        <span class="common">教育程度：</span>
+        <select class="common">
+            <option>高中</option>
+            <option>中专</option>
+            <option>大专</option>
+            <option selected="selected">本科</option>
+            <option>硕士</option>
+            <option>博士</option>
+            <option>其他</option>
+        </select>
+    </div>
+    <div>
+        <span>婚姻状况：</span>
+        <input type="radio" id="single" name="state" checked="checked"/><label for="single">未婚</label>
+        <input type="radio" id="married" name="state"/><label for="married">已婚</label>
+        <input type="radio" id="secret" name="state"/><label for="secret">保密</label>
+    </div>
+    <div>
+        <span>兴趣爱好：</span>
+        <input type="checkbox" id="football" name="hobby"/><label for="football">踢足球</label>
+        <input type="checkbox" id="basketball" name="hobby"/><label for="basketball">打篮球</label>
+        <input type="checkbox" id="film" name="hobby" checked="checked"/><label for="film">看电影</label>
+    </div>
+    <div>
+        <span class="common">描述自己的特点：</span>
+        <textarea maxlength="20" class="common"></textarea>
+    </div>
+    <div>
+        <span class="common"></span>
+        <input type="submit" value="提交" class="common"/>
+    </div>
+    <!-- ********* End ********* -->
+</form>
+</body>
+</html>

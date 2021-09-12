@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function f() {
+        var gender = document.getElementsByName("gender");
+        var flag = false;
+        for (let i = 0; i < gender.length; i++) {
+            alert(i)
+            if (gender[i].checked){
+                alert(i)
+                flag = true;
+            }
+        }
+    }
+</script>
+<body>
+    <input type="radio" name="gender">
+    <input type="radio" name="gender" checked>
+    <input type="radio" name="gender">
+<input type="button" onclick="f()" value="提交">
+</body>
+</html>
