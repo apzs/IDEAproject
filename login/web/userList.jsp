@@ -2,6 +2,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="domain.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--使用这个标签不能用tomcat10，不知道为什么--%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>

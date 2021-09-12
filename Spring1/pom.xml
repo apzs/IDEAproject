@@ -29,6 +29,7 @@
         </plugins>
     </build>
     <packaging>war</packaging>
+
     <dependencies>
         <!--mysql驱动-->
         <dependency>
