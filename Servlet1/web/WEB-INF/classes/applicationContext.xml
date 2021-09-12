@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<bean></bean>
+<!--classes文件夹和这个文件可以不要，但是IDEA报错，但其实没问题（创建这个文件只是为了不报错）-->
