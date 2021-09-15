@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author 无名氏
  * @date 2021/9/15
- * 我的异常处理器
+ * 我的异常处理器，需要在spring-mvc.xml中配置
  */
 public class MyExceptionResolver implements HandlerExceptionResolver {
     /**

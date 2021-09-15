@@ -81,18 +81,18 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
-<!--    配置异常处理类（exception包测试）-->
-<!--    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
-<!--&lt;!&ndash;        value的值为 /jsp/error.jsp&ndash;&gt;-->
-<!--        <property name="defaultErrorView" value="error1"/>-->
-<!--        <property name="exceptionMappings">-->
-<!--            <map>-->
-<!--                <entry key="java.lang.ClassCastException" value="error2"/>-->
-<!--                <entry key="login.exception.MyException" value="error3"/>-->
-<!--            </map>-->
-<!--        </property>-->
-<!--    </bean>-->
+    <!--配置异常处理类（exception包测试）-->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!--value的值为 /jsp/error.jsp-->
+        <property name="defaultErrorView" value="error1"/>
+        <property name="exceptionMappings">
+            <map>
+                <entry key="java.lang.ClassCastException" value="error2"/>
+                <entry key="login.exception.MyException" value="error3"/>
+            </map>
+        </property>
+    </bean>
 
 <!--    配置自定义异常处理器-->
-    <bean class="login.exception.resolver.MyExceptionResolver"/>
+<!--    <bean class="login.exception.resolver.MyExceptionResolver"/>-->
 </beans>
