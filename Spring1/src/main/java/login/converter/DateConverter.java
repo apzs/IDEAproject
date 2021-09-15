@@ -12,6 +12,7 @@ import java.util.Date;
  * @date 2021/9/5
  */
 //Converter<String, Date> : String代表转换之前的类型,Date代表转换之后的类型(Spring-mvc.xml)
+//    response类中"/save14"使用
 public class DateConverter implements Converter<String, Date> {
     @Override
     public Date convert(String dateStr) {

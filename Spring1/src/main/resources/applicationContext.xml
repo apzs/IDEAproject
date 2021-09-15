@@ -75,6 +75,8 @@
         </property>
      </bean>
 
+    <bean id="demoService" class="login.exception.impl.DemoServiceImpl"/>
+
 <!--    引入外部配置文件-->
     <import resource="applicationContext-mysql.xml"/>
 </beans>

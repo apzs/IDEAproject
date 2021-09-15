@@ -25,4 +25,16 @@
 
 <!--    组件扫描，扫描Controller-->
     <context:component-scan base-package="com.controller"/>
+
+<!--    配置拦截器，判断用户是否登录-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+<!--            配置那些资源执行拦截操作-->
+            <mvc:mapping path="/**"/>
+<!--            配置哪些资源不执行拦截操作-->
+            <mvc:exclude-mapping path="/user/login"/>
+            <mvc:exclude-mapping path="/user/list"/>
+            <bean class="com.Interceptor.PrivilegeInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

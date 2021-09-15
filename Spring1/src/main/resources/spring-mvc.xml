@@ -61,4 +61,38 @@
 <!--        上传单个文件的大小-->
         <property name="maxUploadSizePerFile" value="5242800"/>
     </bean>
+
+<!--    //在myInterceptor修改拦截器，在“interceptor.TargetController_拦截器”类中测试-->
+<!--    加同样的拦截器类也都会执行-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+<!--            对那些资源执行拦截操作-->
+<!--            “/**”表示对所有方法都执行拦截操作-->
+            <mvc:mapping path="/target/**"/>
+            <bean class="login.interceptor.MyInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <!--对哪些资源执行拦截操作-->
+            <!-- “/**”表示对所有方法都执行拦截操作-->
+            <mvc:mapping path="/target/**"/>
+<!--            对哪些资源不进行拦截-->
+            <mvc:exclude-mapping path="/user/login"/>
+            <bean class="login.interceptor.MyInterceptor2"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+<!--    配置异常处理类（exception包测试）-->
+<!--    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+<!--&lt;!&ndash;        value的值为 /jsp/error.jsp&ndash;&gt;-->
+<!--        <property name="defaultErrorView" value="error1"/>-->
+<!--        <property name="exceptionMappings">-->
+<!--            <map>-->
+<!--                <entry key="java.lang.ClassCastException" value="error2"/>-->
+<!--                <entry key="login.exception.MyException" value="error3"/>-->
+<!--            </map>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    配置自定义异常处理器-->
+    <bean class="login.exception.resolver.MyExceptionResolver"/>
 </beans>
