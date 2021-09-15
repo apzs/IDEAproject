@@ -127,7 +127,15 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>5.0.5.RELEASE</version>
-            <scope>test</scope>
+            <!--compile和test都有效-->
+            <scope>provided</scope>
+        </dependency>
+
+<!--        测试AOP(aspectj实现的AOP比Spring更好)-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.4</version>
         </dependency>
     </dependencies>
 

@@ -2,8 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
-       xsi:schemaLocation=
-               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+                http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+               ">
 <!--    1）当scope的取值为singleton时
         Bean的实例化个数：1个
         Bean的实例化时机：当Spring核心文件被加载时，实例化配置的Bean实例
@@ -26,19 +29,19 @@
 -->
 
     <bean id="userService" class="login.service.impl.UserServiceImpl" scope="singleton">
-<!--    name的值为对应的set方法，ref为对应的id-->
+        <!--name的值为对应的set方法，ref为对应的id-->
         <property name="userDao" ref="userDao"></property>
     </bean>
 <!--
     第二种更加简单的set方法注入，需要导入p命名空间
     <bean id="userService" class="UserServiceImpl" p:userDao-ref="userDao"/>
 -->
-    <!--
+<!--
         <bean id="userService" class="UserServiceImpl" scope="singleton">
         name为构造方法的参数名，ref为对应的id
         <constructor-arg name="userDao" ref="userDao"></constructor-arg>
          </bean>
-        -->
+-->
 
     <bean id="u1" class="login.domain.User"/>
     <bean id="u2" class="login.domain.User"/>
@@ -77,6 +80,19 @@
 
     <bean id="demoService" class="login.exception.impl.DemoServiceImpl"/>
 
-<!--    引入外部配置文件-->
+    <!--AOP目标对象-->
+    <bean id="target" class="login.aop.aspectj.Target"/>
+    <!--AOP切面对象-->
+    <bean id="myAspect" class="login.aop.aspectj.MyAspect"/>
+    <!--配置织入 告诉Spring框架 哪些方法（切点）需要进行哪些增强（前置增强、后置增强 ......）-->
+    <aop:config>
+        <!--声明切面-->
+        <aop:aspect ref="myAspect">
+        <!--切面=切点+通知-->
+            <aop:before method="myBefore" pointcut="execution(public void login.aop.aspectj.Target.save())"/>
+        </aop:aspect>
+    </aop:config>
+
+    <!--引入外部配置文件-->
     <import resource="applicationContext-mysql.xml"/>
 </beans>
