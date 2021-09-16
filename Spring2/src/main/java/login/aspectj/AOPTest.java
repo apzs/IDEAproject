@@ -1,4 +1,4 @@
-package login.aop.aspectj;
+package login.aspectj;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,10 +9,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 /**
  * @author 无名氏
  * @date 2021/9/15
- * 需要在applicationContext.xml中配置目标对象、切面对象、配置织入(Spring2中有基于注解的配置)
+ * 需要在applicationContext.xml中开启AOP自动代理
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
+//@ContextConfiguration(classes = {SpringConfiguration.class}) 这种情况不行(需要在配置文件中开启自动代理)
 public class AOPTest {
 
     @Autowired

@@ -88,8 +88,24 @@
     <aop:config>
         <!--声明切面-->
         <aop:aspect ref="myAspect">
+            <!--可以抽取切点表达式-->
+            <aop:pointcut id="myPointcut" expression="execution(public void login.aop.aspectj.Target.*(..))"/>
         <!--切面=切点+通知-->
-            <aop:before method="myBefore" pointcut="execution(public void login.aop.aspectj.Target.save())"/>
+            <aop:before method="myBefore" pointcut="execution(public void login.aop.aspectj.Target.*(..))"/>
+            <aop:after-returning method="myAfterReturning" pointcut-ref="myPointcut"/>
+            <aop:around method="myAround" pointcut-ref="myPointcut"/>
+            <aop:after-throwing method="myAfterThrowing" pointcut-ref="myPointcut"/>
+            <aop:after method="myAfter" pointcut-ref="myPointcut"/>
+            <!--execution([修饰符] 返回值类型 包名.类名.方法名(参数))-->
+            <!--访问修饰符可以省略-->
+            <!--返回值类型、包名、类名、方法名可以使用星号*  代表任意-->
+            <!--包名与类名之间一个点 . 代表当前包下的类，两个点 .. 表示当前包及其子包下的类-->
+            <!--参数列表可以使用两个点 .. 表示任意个数，任意类型的参数列表-->
+            <!--execution(public void com.aop.Target.method())-->
+            <!--execution(void com.aop.Target.*(..))-->
+            <!--execution(* com.aop.*.*(..))-->
+            <!--execution(* com.aop..*.*(..))-->
+            <!--execution(* *..*.*(..))-->
         </aop:aspect>
     </aop:config>
 
