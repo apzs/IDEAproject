@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+                http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+               ">
+<!--    1）当scope的取值为singleton时
+        Bean的实例化个数：1个
+        Bean的实例化时机：当Spring核心文件被加载时，实例化配置的Bean实例
+        2）当scope的取值为prototype时
+        Bean的实例化个数：多个
+        Bean的实例化时机：当调用getBean()方法时实例化Bean
+    -->
+<!--无参构造-->
+    <bean id="userDao" class="login.dao.impl.UserDaoImpl" scope="singleton"></bean>
+
+<!--
+ <bean id="userDao" class="login.dao.impl.UserDaoImpl" scope="singleton" init-method="init" destroy-method="destroy"></bean>
+-->
+<!--
+    静态工厂方法
+    <bean id="userDao" class="login.dao.StaticFactoryBean" factory-method="createUserDao1"></bean>
+    工厂非静态方法(先创建工厂对象，再指定工厂方法)
+    <bean id="beanFactory" class="login.dao.StaticFactoryBean"></bean>
+    <bean id="userDao" factory-bean="beanFactory" factory-method="createUserDao2"></bean>
+-->
+
+    <bean id="userService" class="login.service.impl.UserServiceImpl" scope="singleton">
+        <!--name的值为对应的set方法，ref为对应的id-->
+        <property name="userDao" ref="userDao"></property>
+    </bean>
+<!--
+    第二种更加简单的set方法注入，需要导入p命名空间
+    <bean id="userService" class="UserServiceImpl" p:userDao-ref="userDao"/>
+-->
+<!--
+        <bean id="userService" class="UserServiceImpl" scope="singleton">
+        name为构造方法的参数名，ref为对应的id
+        <constructor-arg name="userDao" ref="userDao"></constructor-arg>
+         </bean>
+-->
+
+    <bean id="u1" class="login.domain.User"/>
+    <bean id="u2" class="login.domain.User"/>
+    <bean id="u3" class="login.domain.User"/>
+    <bean id="userService2" class="login.service.impl.UserServiceImpl2">
+        <property name="age" value="21"></property>
+        <property name="company" value="阿里"></property>
+        <property name="userDao" ref="userDao"/>
+        <property name="properties">
+            <props>
+                <prop key="111">aaa</prop>
+                <prop key="222">bbb</prop>
+                <prop key="ccc">ccc</prop>
+            </props>
+        </property>
+        <property name="list">
+            <list>
+                <value>aaa</value>
+                <value>bbb</value>
+                <value>ccc</value>
+            </list>
+        </property>
+        <property name="list2">
+            <list>
+                <ref bean="u1"/>
+                <ref bean="u2"/>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="111" value-ref="u1"/>
+                <entry key="222" value-ref="u2"/>
+            </map>
+        </property>
+     </bean>
+
+    <bean id="demoService" class="login.exception.impl.DemoServiceImpl"/>
+
+    <!--AOP目标对象-->
+    <bean id="target" class="login.aop.aspectj.Target"/>
+    <!--AOP切面对象-->
+    <bean id="myAspect" class="login.aop.aspectj.MyAspect"/>
+    <!--配置织入 告诉Spring框架 哪些方法（切点）需要进行哪些增强（前置增强、后置增强 ......）-->
+    <aop:config>
+        <!--声明切面-->
+        <aop:aspect ref="myAspect">
+            <!--可以抽取切点表达式-->
+            <aop:pointcut id="myPointcut" expression="execution(public void login.aop.aspectj.Target.*(..))"/>
+        <!--切面=切点+通知-->
+            <aop:before method="myBefore" pointcut="execution(public void login.aop.aspectj.Target.*(..))"/>
+            <aop:after-returning method="myAfterReturning" pointcut-ref="myPointcut"/>
+            <aop:around method="myAround" pointcut-ref="myPointcut"/>
+            <aop:after-throwing method="myAfterThrowing" pointcut-ref="myPointcut"/>
+            <aop:after method="myAfter" pointcut-ref="myPointcut"/>
+            <!--execution([修饰符] 返回值类型 包名.类名.方法名(参数))-->
+            <!--访问修饰符可以省略-->
+            <!--返回值类型、包名、类名、方法名可以使用星号*  代表任意-->
+            <!--包名与类名之间一个点 . 代表当前包下的类，两个点 .. 表示当前包及其子包下的类-->
+            <!--参数列表可以使用两个点 .. 表示任意个数，任意类型的参数列表-->
+            <!--execution(public void com.aop.Target.method())-->
+            <!--execution(void com.aop.Target.*(..))-->
+            <!--execution(* com.aop.*.*(..))-->
+            <!--execution(* com.aop..*.*(..))-->
+            <!--execution(* *..*.*(..))-->
+        </aop:aspect>
+    </aop:config>
+
+
+    <bean id="account" class="login.transaction.impl.AccountDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+    <!--目标对象（事务对象）内部方法就是切点-->
+    <bean id="accountService" class="login.transaction.impl.AccountServiceImpl">
+        <property name="accountDao" ref="account"/>
+    </bean>
+    <!--配置平台事务管理器-->
+    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--通知 事务的增强-->
+    <tx:advice id="txAdvice" transaction-manager="dataSourceTransactionManager">
+        <!--设置事务的属性信息-->
+        <tx:attributes>
+            <!--isolation:隔离级别-->
+            <!--propagation:传播行为-->
+            <!--timeout:超出时间-->
+            <!--read-only:是否只读-->
+            <tx:method name="transfer" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
+            <tx:method name="findAll" read-only="true"/>
+            <!--  update*表示以update开头的方法  -->
+            <tx:method name="update*" read-only="false"/>
+             <!--  *表示所有方法  -->
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+    <!--配置织入-->
+    <aop:config>
+        <!--advisor也叫切面（事务相关的切面）-->
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* login.transaction..*.*(..))"/>
+    </aop:config>
+
+
+    <!--引入外部配置文件-->
+    <import resource="applicationContext-mysql.xml"/>
+</beans>
