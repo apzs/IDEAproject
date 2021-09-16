@@ -19,10 +19,10 @@ import java.util.ResourceBundle;
 public class DateSourceTest {
     //不用写成druid。properties
     ResourceBundle rb = ResourceBundle.getBundle("jdbc");
-    String driver = rb.getString("driver");
-    String url = rb.getString("url");
-    String username = rb.getString("username");
-    String password = rb.getString("password");
+    String driver = rb.getString("jdbc.driver");
+    String url = rb.getString("jdbc.url");
+    String username = rb.getString("jdbc.username");
+    String password = rb.getString("jdbc.password");
 
     @Test
     public void test1() throws PropertyVetoException, SQLException {
