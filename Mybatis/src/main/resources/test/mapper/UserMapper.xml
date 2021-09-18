@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test.dao.UserMapper">
+
+    <!--查询操作-->
+    <select id="findAll" resultType="test.domain.User">
+        select id,username,password from test.user
+    </select>
+
+    <select id="findUserById" resultType="user" parameterType="int">
+        select id,username,password from test.user where id=#{id}
+    </select>
+
+    <!--插入操作-->
+    <!--在sqlMapConfig.xml中定义别名后可使用user-->
+    <insert id="save" parameterType="user">
+        insert into test.user(id, username, password) VALUES(#{id},#{username},#{password})
+    </insert>
+    
+    <!--修改操作-->
+    <update id="update" parameterType="user">
+        update test.user set username=#{username},password=#{password} where id=#{id}
+    </update>
+
+    <!--删除操作-->
+    <!--#{}内写什么都可以-->
+    <delete id="delete" parameterType="int">
+        delete from test.user where id=#{id}
+    </delete>
+</mapper>
