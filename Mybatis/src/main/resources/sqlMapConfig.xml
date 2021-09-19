@@ -5,9 +5,28 @@
     <!--通过properties标签，加载外部properties文件-->
     <properties resource="jdbc.properties"/>
 
+    <!--自定义别名-->
     <typeAliases>
         <typeAlias type="test.domain.User" alias="user"/>
+        <typeAlias type="test.domain.UserMessage" alias="userMessage"/>
+        <typeAlias type="test.domain.Orders" alias="orders"/>
+        <typeAlias type="test.domain.UserMessage2" alias="userMessage2"/>
+        <typeAlias type="test.domain.UserMessage3" alias="userMessage3"/>
+        <typeAlias type="test.domain.Role" alias="role"/>
     </typeAliases>
+
+    <!--注册类型处理器(把java中的date类型转换成long型)-->
+    <typeHandlers>
+        <typeHandler handler="test.handler.DateTypeHandler"/>
+    </typeHandlers>
+
+    <!--配置分页查询插件-->
+    <!--dialect:方言-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <property name="dialect" value="mysql"/>
+        </plugin>
+    </plugins>
 
     <!--数据源环境-->
     <!-- default:默认的环境名称 -->
@@ -30,6 +49,8 @@
     <!--加载映射文件-->
     <mappers>
         <mapper resource="test/mapper/UserMapper.xml"/>
+        <mapper resource="test/mapper/UserMessageMapper.xml"/>
+        <mapper resource="test/mapper/OrderMapper.xml"/>
     </mappers>
 
 </configuration>

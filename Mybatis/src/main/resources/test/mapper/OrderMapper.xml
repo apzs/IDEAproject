@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test.dao.OrderMapper">
+
+<!-- 第一种方式
+    手动指定实体与属性的对应关系
+    column    :数据表的字段名称
+    property  :实体的属性名称
+-->
+    <resultMap id="orderMap" type="orders">
+        <id column="oid" property="id"/>
+        <result column="orderTime" property="orderTime"/>
+        <result column="total" property="total"/>
+        <result column="uid" property="user.id"/>
+        <result column="username" property="user.username"/>
+        <result column="password" property="user.password"/>
+    </resultMap>
+
+
+    <!--第二种方式-->
+    <resultMap id="orderMap2" type="orders">
+        <id column="oid" property="id"/>
+        <result column="orderTime" property="orderTime"/>
+        <result column="total" property="total"/>
+<!--
+        property:当前实体(orders)中的属性名称(private User user)
+        javaType:当前实体(orders)中的属性的类型(User)
+-->
+        <association property="user" javaType="user">
+            <id column="uid" property="id"/>
+            <result column="username" property="username"/>
+            <result column="password" property="password"/>
+        </association>
+    </resultMap>
+
+<select id="findAllOrders" resultMap="orderMap2">
+    select orders.id oid,orderTime,total,uid,username,password 
+    from test.orders
+    join test.user
+    on uid=user.id
+</select>
+
+<!--=======================================================================================================-->
+    
+    <resultMap id="userMap" type="userMessage2">
+        <id column="uid" property="id"/>
+        <result column="name" property="name"/>
+        <result column="birthday" property="birthday"/>
+<!--    配置集合信息
+        property:集合名称
+        orders:当前集合的数据类型
+-->
+        <collection property="ordersList" ofType="orders">
+            <!--封装order的数据-->
+            <id column="oid" property="id"/>
+            <result column="orderTime" property="orderTime"/>
+            <result column="total" property="total"/>
+        </collection>
+    </resultMap>
+    <select id="findOrdersByUsers" resultMap="userMap">
+        select name,birthday,orders.id oid,orderTime,total,uid from test.message
+        join test.orders
+        on message.id=orders.uid;
+    </select>
+
+<!--=======================================================================================================-->
+    
+  <resultMap id="userRoleMap" type="userMessage3">
+        <!--user的信息-->
+      <id column="userId" property="id"/>
+      <result column="name" property="name"/>
+      <result column="birthday" property="birthday"/>
+        <!--user内部的roleList信息-->
+      <collection property="roleList" ofType="role">
+          <id column="roleId" property="id"/>
+          <result column="roleName" property="name"/>
+          <result column="roleDesc" property="desc"/>
+      </collection>
+  </resultMap>
+
+    <select id="findAllOrderAndRole" resultMap="userRoleMap">
+        select name,birthday,userId,roleId,roleName,roleDesc from test.message as um
+        join test.sys_user_role  um_r
+        on userId=um.id
+        join test.sys_role as r
+        on um_r.roleId=r.id
+    </select>
+</mapper>

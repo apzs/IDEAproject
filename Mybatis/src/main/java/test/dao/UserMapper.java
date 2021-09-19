@@ -14,4 +14,8 @@ public interface UserMapper {
     List<User> findAll() throws IOException;
 
     User findUserById(int id);
+
+    List<User> findByCondition(User user);
+
+    List<User> findByIds(List<Integer> ids);
 }

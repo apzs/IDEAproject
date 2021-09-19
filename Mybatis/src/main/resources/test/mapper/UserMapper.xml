@@ -7,12 +7,47 @@
         select id,username,password from test.user
     </select>
 
-    <select id="findUserById" resultType="user" parameterType="int">
-        select id,username,password from test.user where id=#{id}
+
+    <!--sql语句的抽取-->
+    <sql id="selectUser">  select id,username,password from test.user</sql>
+    <!--在sqlMapConfig.xml中定义别名后可使用user-->
+    <select id="findUserById" parameterType="int" resultType="user">
+        <include refid="selectUser"/>  from test.user where id=#{id}
     </select>
 
+    <select id="findByCondition" parameterType="user" resultType="user">
+        <include refid="selectUser"/>
+            <where>
+                <if test="id!=0">
+                    and id=#{id}
+                </if>
+                <if test="username!=null">
+                    and username=#{username}
+                </if>
+                <if test="password!=null">
+                    and password=#{password}
+                </if>
+            </where>
+    </select>
+
+<!--
+            select id,username,password from test.user where id in(1,2,3)
+            collection="list"  集合用list，数组用array
+            open="id in("      开始
+            item="id"          list集合某个索引的值
+            close=")"          结束
+            separator=","      分隔符
+-->
+    <select id="findByIds" parameterType="list" resultType="user">
+        select id,username,password from test.user
+           <where>
+               <foreach collection="list" open="id in("   item="id" close=")" separator=",">
+                   #{id}
+               </foreach>
+           </where>
+    </select>
+    
     <!--插入操作-->
-    <!--在sqlMapConfig.xml中定义别名后可使用user-->
     <insert id="save" parameterType="user">
         insert into test.user(id, username, password) VALUES(#{id},#{username},#{password})
     </insert>
