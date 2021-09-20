@@ -7,8 +7,8 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import test.dao.OrderMapper;
 import test.domain.Orders;
 import test.domain.UserMessage;
-import test.domain.UserMessage2;
-import test.domain.UserMessage3;
+import test.domain.UserMessage_Orders;
+import test.domain.UserMessage_Role;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,15 +35,15 @@ public class UserOrderDemo {
         }
 
         System.out.println("====================================================");
-        List<UserMessage2> list = mapper.findOrdersByUsers();
-        for (UserMessage2 userMessage2 : list) {
+        List<UserMessage_Orders> list = mapper.findOrdersByUsers();
+        for (UserMessage_Orders userMessage2 : list) {
             System.out.println(userMessage2);
         }
 
 
         System.out.println("====================================================");
-        List<UserMessage3> allOrderAndRole = mapper.findAllOrderAndRole();
-        for (UserMessage3 userMessage3 : allOrderAndRole) {
+        List<UserMessage_Role> allOrderAndRole = mapper.findAllOrderAndRole();
+        for (UserMessage_Role userMessage3 : allOrderAndRole) {
             System.out.println(userMessage3);
         }
 

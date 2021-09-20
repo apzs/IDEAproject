@@ -13,6 +13,9 @@ public class Orders {
     //当前订单属于哪一个用户
     private User user;
 
+    public Orders() {
+    }
+
     public int getId() {
         return id;
     }

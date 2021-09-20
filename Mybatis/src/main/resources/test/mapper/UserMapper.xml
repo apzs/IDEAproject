@@ -6,15 +6,15 @@
     <select id="findAll" resultType="test.domain.User">
         select id,username,password from test.user
     </select>
-
-
+<!--========================================================================================-->
     <!--sql语句的抽取-->
     <sql id="selectUser">  select id,username,password from test.user</sql>
     <!--在sqlMapConfig.xml中定义别名后可使用user-->
     <select id="findUserById" parameterType="int" resultType="user">
-        <include refid="selectUser"/>  from test.user where id=#{id}
+        <include refid="selectUser"/> where id=#{id}
     </select>
 
+<!--========================================================================================-->
     <select id="findByCondition" parameterType="user" resultType="user">
         <include refid="selectUser"/>
             <where>
@@ -30,6 +30,7 @@
             </where>
     </select>
 
+<!--========================================================================================-->
 <!--
             select id,username,password from test.user where id in(1,2,3)
             collection="list"  集合用list，数组用array

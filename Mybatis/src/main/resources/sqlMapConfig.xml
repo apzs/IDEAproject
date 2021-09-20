@@ -10,8 +10,8 @@
         <typeAlias type="test.domain.User" alias="user"/>
         <typeAlias type="test.domain.UserMessage" alias="userMessage"/>
         <typeAlias type="test.domain.Orders" alias="orders"/>
-        <typeAlias type="test.domain.UserMessage2" alias="userMessage2"/>
-        <typeAlias type="test.domain.UserMessage3" alias="userMessage3"/>
+        <typeAlias type="test.domain.UserMessage_Orders" alias="userMessage2"/>
+        <typeAlias type="test.domain.UserMessage_Role" alias="userMessage3"/>
         <typeAlias type="test.domain.Role" alias="role"/>
     </typeAliases>
 
@@ -51,6 +51,8 @@
         <mapper resource="test/mapper/UserMapper.xml"/>
         <mapper resource="test/mapper/UserMessageMapper.xml"/>
         <mapper resource="test/mapper/OrderMapper.xml"/>
+        <!--指定接口所在的包(不能和xml配的接口在同一个包)-->
+        <package name="test.dao2"/>
     </mappers>
 
 </configuration>

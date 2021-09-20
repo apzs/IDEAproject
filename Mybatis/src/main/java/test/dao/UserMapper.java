@@ -11,6 +11,12 @@ import java.util.List;
  */
 public interface UserMapper {
 
+    void save(User user);
+
+    void update(User user);
+
+    void delete(int id);
+
     List<User> findAll() throws IOException;
 
     User findUserById(int id);

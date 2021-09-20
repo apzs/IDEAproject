@@ -1,8 +1,8 @@
 package test.dao;
 
 import test.domain.Orders;
-import test.domain.UserMessage2;
-import test.domain.UserMessage3;
+import test.domain.UserMessage_Orders;
+import test.domain.UserMessage_Role;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public interface OrderMapper {
 
     List<Orders> findAllOrders();
 
-    List<UserMessage2> findOrdersByUsers();
+    List<UserMessage_Orders> findOrdersByUsers();
 
-    List<UserMessage3> findAllOrderAndRole();
+    List<UserMessage_Role> findAllOrderAndRole();
 }
