@@ -1,0 +1,40 @@
+#可以创建application.properties文件(使用键值对)
+#还可以创建application.yaml文件(和yml格式一样)
+#扫描顺序是(application.properties)->(application.yml)->(application.yaml)
+#如果后面扫到了与前面相同属性的配置，则后扫到的会忽略
+
+
+server:
+  port: 8081
+
+
+#对象
+person:
+  name: zhangsan
+  age: 21
+#对象行内写法
+person2: {name: zhangsan,age: 22}
+
+#数组
+address:
+  - beijing
+  - shanghai
+#数组的行内写法
+address2: [beijing,shanghai]
+
+#纯量
+msg1: 'hello \n world'    # 单引号内的\n不会被识别为转义字符，会原样输出
+msg2: "hello \n world"
+
+#引用
+name: zhangsan
+person3:
+  name: ${name}
+  age: 23
+
+#启用开发环境
+spring:
+  profiles:
+    active: dev
+#或使用虚拟机参数(VM options): -Dspring.profiles.active=test
+#或使用命令行参数(Program arguments): --spring.profiles.active=test
