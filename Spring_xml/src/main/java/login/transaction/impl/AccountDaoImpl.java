@@ -17,11 +17,11 @@ public class AccountDaoImpl implements AccountDao {
 
     @Override
     public void out(String outMan, double money) {
-        jdbcTemplate.update("update account set money=money-? where name=?",money,outMan);
+        jdbcTemplate.update("update login.account set money=money-? where name=?",money,outMan);
     }
 
     @Override
     public void in(String inMan, double money) {
-        jdbcTemplate.update("update account set money=money+? where name=?",money,inMan);
+        jdbcTemplate.update("update login.account set money=money+? where name=?",money,inMan);
     }
 }
