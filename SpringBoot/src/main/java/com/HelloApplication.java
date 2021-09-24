@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
+import redis.clients.jedis.Jedis;
 
 /**
  * @author 无名氏
@@ -30,5 +31,10 @@ public class HelloApplication {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(HelloApplication.class, args);
         Object user = applicationContext.getBean(DomainTest.class);
         System.out.println(user);
+        Jedis jedis = applicationContext.getBean(Jedis.class);
+        System.out.println(jedis);
+        jedis.set("name","lisa");
+        String name = jedis.get("name");
+        System.out.println(name);
     }
 }
