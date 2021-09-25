@@ -54,10 +54,38 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+#    需要加spring-boot-admin-starter-client依赖和spring-boot-starter-actuator并在配置文件将所有监控的endpoint暴露出来
+#    另一个模块需要加spring-boot-admin-starter-service依赖(spring_boot_server)，并将service模块和client模块启动起来(注意修改端口)
+#  访问spring-boot-admin-starter-service模块的url(http://localhost:9000)
+  boot:
+    admin:
+      client:
+        url: http://localhost:9000
 #  redis:
 #    port: 6666
+
 
 mybatis:
   mapper-locations: classpath:com/mapper/*Mapper.xml #mapper映射文件路径
   type-aliases-package: com.domain
 #  config-location: 指定mybatis的核心配置文件
+
+
+#需要加spring-boot-starter-actuator依赖
+#http://localhost:8080/SpringBoot/actuator/health
+#开启健康检查的完整信息
+management:
+  endpoint:
+    health:
+      show-details: always
+#将所有监控的endpoint暴露出来
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+#http://localhost:8080/SpringBoot/actuator/info
+info:
+  name: lisa
+

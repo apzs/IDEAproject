@@ -33,8 +33,8 @@ public class HelloApplication {
         System.out.println(user);
         Jedis jedis = applicationContext.getBean(Jedis.class);
         System.out.println(jedis);
-        jedis.set("name","lisa");
-        String name = jedis.get("name");
-        System.out.println(name);
+        //jedis.set("name","lisa");
+        //String name = jedis.get("name");
+        //System.out.println(name);
     }
 }
