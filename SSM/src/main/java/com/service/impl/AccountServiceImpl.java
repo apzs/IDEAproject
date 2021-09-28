@@ -18,10 +18,12 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     private AccountMapper accountMapper;
 
+    @Override
     public void save(Accounts accounts) {
         accountMapper.save(accounts);
     }
 
+    @Override
     public List<Accounts> findAll() {
         List<Accounts> accountsList = accountMapper.findAll();
         return accountsList;
