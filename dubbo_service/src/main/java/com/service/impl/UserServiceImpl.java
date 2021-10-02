@@ -23,10 +23,12 @@ import service.UserService;
 @Service(timeout = 1000,retries = 2,version = "v1.0",weight = 100)
 public class UserServiceImpl implements UserService {
 
+    @Override
     public String sayHello(){
         return "Hello dubbo...";
     }
 
+    @Override
     public User findUserById(int id) {
         System.out.println("old version ...");
         User user = new User(1,"lisa","123");

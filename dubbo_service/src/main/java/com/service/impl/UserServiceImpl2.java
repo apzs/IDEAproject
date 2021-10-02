@@ -15,10 +15,12 @@ import service.UserService;
 @Service(version = "v2.0")
 public class UserServiceImpl2 implements UserService {
 
+    @Override
     public String sayHello(){
         return "Hello dubbo...";
     }
 
+    @Override
     public User findUserById(int id) {
         System.out.println("new version ...");
         User user = new User(1,"lisa","123");
