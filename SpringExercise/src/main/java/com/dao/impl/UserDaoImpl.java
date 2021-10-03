@@ -27,7 +27,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> findAll() {
-        List<User> userList = jdbcTemplate.query("select * from sys_user", new BeanPropertyRowMapper<User>(User.class));
+        List<User> userList = jdbcTemplate.query("select * from test.sys_user", new BeanPropertyRowMapper<User>(User.class));
         return userList;
     }
 
@@ -38,7 +38,7 @@ public class UserDaoImpl implements UserDao {
             @Override
             public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
                 PreparedStatement preparedStatement = connection.prepareStatement(
-                        "insert into sys_user(id,username,email,password,phoneNum) values (?,?,?,?,?)",
+                        "insert into test.sys_user(id,username,email,password,phoneNum) values (?,?,?,?,?)",
                         //生成主键
                         PreparedStatement.RETURN_GENERATED_KEYS);
                 preparedStatement.setObject(1, null);
@@ -62,23 +62,23 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void saveUserRoleRel(Long userId, Long[] roleIds) {
         for (Long roleId : roleIds) {
-            jdbcTemplate.update("insert into sys_user_role(userId,roleId) values (?,?)", userId, roleId);
+            jdbcTemplate.update("insert into test.sys_user_role(userId,roleId) values (?,?)", userId, roleId);
         }
     }
 
     @Override
     public void delUserRoleRel(Long userId) {
-        jdbcTemplate.update("delete from sys_user_role where userId=?", userId);
+        jdbcTemplate.update("delete from test.sys_user_role where userId=?", userId);
     }
 
     @Override
     public void del(Long userId) {
-        jdbcTemplate.update("delete from sys_user where id=?", userId);
+        jdbcTemplate.update("delete from test.sys_user where id=?", userId);
     }
 
     @Override
     public User login(User user1) throws EmptyResultDataAccessException {
-        User user = jdbcTemplate.queryForObject("select * from sys_user where username=? and password=?",
+        User user = jdbcTemplate.queryForObject("select * from test.sys_user where username=? and password=?",
                 new BeanPropertyRowMapper<User>(User.class),
                 user1.getUsername(), user1.getPassword());
         return user;

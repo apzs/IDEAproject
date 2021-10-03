@@ -1,0 +1,17 @@
+server:
+  port: 8000
+
+
+eureka:
+  instance:
+    hostname: localhost
+
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+#修改访问http://localhost:8761(需要先启动eureka_server)后该应用的Instances currently registered with Eureka的名字
+#将来需要使用该名称来获取路径
+spring:
+  application:
+    name: eureka_provider

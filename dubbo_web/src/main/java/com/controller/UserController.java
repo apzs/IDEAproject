@@ -37,7 +37,6 @@ public class UserController {
                  mock=force:return null表示消费方对该服务的方法调用都直接返回null值，不发起远程调用。用来屏蔽不重要服务不可用时对调用方的影响。
                  mock=fail:return null表示消费方对该服务的方法调用在失败后，再返回null值，不抛异常。用来容忍不重要服务不稳定时对调用方的影响。
      */
-
     @Reference(timeout = 1000,version = "v2.0",loadbalance = "random",cluster = "failover",mock = "fail:return null")//远程访问服务的提供方
     public UserService userService;
 

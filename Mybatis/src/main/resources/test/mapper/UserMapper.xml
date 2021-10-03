@@ -3,6 +3,7 @@
 <mapper namespace="test.dao.UserMapper">
 
     <!--查询操作-->
+
     <select id="findAll" resultType="test.domain.User">
         select id,username,password from test.user
     </select>
@@ -49,6 +50,12 @@
     </select>
     
     <!--插入操作-->
+<!--useGeneratedKeys:设置是否使用jdbc的getGenereatedKeys方法获取主键并赋值到keyProperty设置的属性中
+    keyProperty     :实体类主键字段
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id" parameterType="user">
+    接口的返回类型改为int
+    调用user.id获取来id(返回的int类型不是id)
+-->
     <insert id="save" parameterType="user">
         insert into test.user(id, username, password) VALUES(#{id},#{username},#{password})
     </insert>
