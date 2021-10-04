@@ -1,0 +1,22 @@
+server:
+  port: 8762
+
+eureka:
+  instance:
+    #http://eureka_server2:8762/eureka(需要修改C:\Windows\System32\drivers\etc的host文件)
+    hostname: eureka_server2  #eureka主机名
+
+  client:
+    service-url:
+        #eureka服务端地址，将来客户端使用该地址和eureka进行通信
+       defaultZone: http://localhost:8761/eureka  #集群需要互相填写对方主机
+      #是否将自己的路径注册到eureka.上。eureka server 不需要，eureka provider client需要
+    register-with-eureka: true
+    #是否需要从eureka中抓取路径。eureka server 不需要，eureka consumer client需要
+    fetch-registry: true
+
+spring:
+  application:
+#    eureka集群的名字要一样
+    name: eureka-server-ha
+

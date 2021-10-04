@@ -1,7 +1,6 @@
 server:
   port: 8761
 
-
 # eureka 配置
 # eureka一共有4部分配置
 # 1. dashboard: eureka的web控制台配置
@@ -15,9 +14,16 @@ eureka:
   client:
     service-url:
         #eureka服务端地址，将来客户端使用该地址和eureka进行通信
-       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+       defaultZone: http://eureka_server2:8762/eureka   #集群需要互相填写对方主机
       #是否将自己的路径注册到eureka.上。eureka server 不需要，eureka provider client需要
-    register-with-eureka: false
+    register-with-eureka: true
     #是否需要从eureka中抓取路径。eureka server 不需要，eureka consumer client需要
-    fetch-registry: false
+    fetch-registry: true
+  server:
+    enable-self-preservation: false #不开启自我保护
+    eviction-interval-timer-in-ms: 60 #检查服务是否可用的时间间隔
 
+spring:
+  application:
+    #    eureka集群的名字要一样
+    name: eureka-server-ha
