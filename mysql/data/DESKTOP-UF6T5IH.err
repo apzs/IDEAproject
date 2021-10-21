@@ -1,0 +1,37 @@
+211014 23:17:06 [Note] Plugin 'FEDERATED' is disabled.
+211014 23:17:06 InnoDB: The InnoDB memory heap is disabled
+211014 23:17:06 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+211014 23:17:06 InnoDB: Compressed tables use zlib 1.2.3
+211014 23:17:06 InnoDB: Initializing buffer pool, size = 47.0M
+211014 23:17:06 InnoDB: Completed initialization of buffer pool
+211014 23:17:06 InnoDB: highest supported file format is Barracuda.
+211014 23:17:06  InnoDB: Waiting for the background threads to start
+211014 23:17:07 InnoDB: 5.5.40 started; log sequence number 1779099
+211014 23:17:07 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+211014 23:17:07 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+211014 23:17:07 [Note] Server socket created on IP: '0.0.0.0'.
+211014 23:17:07 [Note] Event Scheduler: Loaded 0 events
+211014 23:17:07 [Note] A:\MySQL\bin\mysqld: ready for connections.
+Version: '5.5.40'  socket: ''  port: 3306  MySQL Community Server (GPL)
+211017 14:35:39 [Note] A:\MySQL\bin\mysqld: Normal shutdown
+
+211017 14:35:39 [Note] Event Scheduler: Purging the queue. 0 events
+211017 14:35:39  InnoDB: Starting shutdown...
+211017 14:35:40  InnoDB: Shutdown completed; log sequence number 1779099
+211017 14:35:40 [Note] A:\MySQL\bin\mysqld: Shutdown complete
+
+211017 14:36:05 [Note] Plugin 'FEDERATED' is disabled.
+211017 14:36:05 InnoDB: The InnoDB memory heap is disabled
+211017 14:36:05 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+211017 14:36:05 InnoDB: Compressed tables use zlib 1.2.3
+211017 14:36:05 InnoDB: Initializing buffer pool, size = 47.0M
+211017 14:36:05 InnoDB: Completed initialization of buffer pool
+211017 14:36:05 InnoDB: highest supported file format is Barracuda.
+211017 14:36:05  InnoDB: Waiting for the background threads to start
+211017 14:36:06 InnoDB: 5.5.40 started; log sequence number 1779099
+211017 14:36:06 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+211017 14:36:06 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+211017 14:36:06 [Note] Server socket created on IP: '0.0.0.0'.
+211017 14:36:06 [Note] Event Scheduler: Loaded 0 events
+211017 14:36:06 [Note] A:\MySQL\bin\mysqld: ready for connections.
+Version: '5.5.40'  socket: ''  port: 3306  MySQL Community Server (GPL)
