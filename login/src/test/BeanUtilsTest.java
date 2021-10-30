@@ -3,7 +3,7 @@ package test;
 import domain.User;
 import org.apache.commons.beanutils.BeanUtils;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import util.JDBCUtils;
 
