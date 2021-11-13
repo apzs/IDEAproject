@@ -5,6 +5,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 
+/**
+ * @author Œﬁ√˚ œ
+ */
 @Controller("userController")
 public class UserController_xml {
     public static void main(String[] args) {
