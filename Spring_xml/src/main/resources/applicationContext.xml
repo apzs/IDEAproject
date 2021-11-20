@@ -111,7 +111,7 @@
         </aop:aspect>
     </aop:config>
 
-
+<!--===============================================================================================================-->
     <bean id="account" class="login.transaction.impl.AccountDaoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>

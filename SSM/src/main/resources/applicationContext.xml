@@ -43,7 +43,7 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
-    <!--事务增强-->
+    <!--事务增强(通知)-->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
             <!--   *表所有方法  -->
