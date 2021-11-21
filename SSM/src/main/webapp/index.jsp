@@ -11,6 +11,7 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  $END$ <br>
+  <a href="/SSM/logout.do">退出</a>
   </body>
 </html>
