@@ -51,6 +51,8 @@ public class MyUserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         initData();
+        System.out.println(bCryptPasswordEncoder.encode("admin"));
+        System.out.println(bCryptPasswordEncoder.encode("1234"));
         //模拟根据用户名查询数据库
         User userInDB = map.get(username);
         if (userInDB == null) {

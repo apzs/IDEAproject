@@ -11,7 +11,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  */
 @EnableAdminServer
 @SpringBootApplication
-//继承SpringBootServletInitializer类重写configure方法并在pom文件配置<packaging>var</packaging>
+//继承SpringBootServletInitializer类重写configure方法并在pom文件配置<packaging>war</packaging>
 //在build中<finalName>springboot</finalName>可以设置打包的名字
 public class SpringBootServerApplication extends SpringBootServletInitializer {
 

@@ -13,4 +13,10 @@ eureka:
 #将来需要使用该名称来获取路径
 spring:
   application:
-    name: eureka_consumer
+    name: eureka-consumer
+
+
+#配置文件配置的方式设置Ribbon的负载均衡策略
+EUREKA-PROVIDER: #设置的服务提供方的应用名称
+  ribbon:
+    NFloadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #策略类
