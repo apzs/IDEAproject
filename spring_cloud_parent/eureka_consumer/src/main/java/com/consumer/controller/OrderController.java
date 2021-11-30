@@ -1,6 +1,7 @@
 package com.consumer.controller;
 
 import com.consumer.domain.Goods;
+import com.consumer.feign.GoodsFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,8 @@ public class OrderController {
     /**需要在启动类激活discoveryClient对象*/
     @Autowired
     private DiscoveryClient discoveryClient;
+    @Autowired
+    private GoodsFeignClient goodsFeignClient;
 
    /* //http://localhost:9000/order/goods/1
     @GetMapping("/goods/{id}")
@@ -45,7 +48,8 @@ public class OrderController {
     /**
      * 使用Ribbon 简化restTemplate调用
      * 1.在声明restTemplate的Bean时候，添加一个注解: @LoadBalanced
-     * 2.在使用restTemplate发起请求时，需要定义url时，host:port可以替换为服务提供方的应用名称
+     * 2.把负载均衡的一个策略类添加到容器(添加在MyRule类)
+     * 3.在使用restTemplate发起请求时，需要定义url时，host:port可以替换为服务提供方的应用名称
      * (加@LoadBalanced后findGoodsById方法不能正常访问)
      * @param id
      * @return
@@ -57,5 +61,10 @@ public class OrderController {
         String url = "http://eureka-provider/goods/findOne/"+id;
         Goods goods = restTemplate.getForObject(url, Goods.class);
         return goods;
+    }
+
+    @GetMapping("/goods3/{id}")
+    public Goods findGoodsById3(@PathVariable("id") int id){
+        return goodsFeignClient.findGoodsById(id);
     }
 }
