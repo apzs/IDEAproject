@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 configuration:
      *1.配置文件配置logging.level
      *2.启动类添加@EnableFeignClients
-     *3.将Logger.Level添加到容器(FeignLogConfig设置了日志级别)
+     *3.将Logger.Level添加到容器(设置了日志级别为full)
      *4.@FeignClient 添加configuration属性
 fallback:
      降级策略

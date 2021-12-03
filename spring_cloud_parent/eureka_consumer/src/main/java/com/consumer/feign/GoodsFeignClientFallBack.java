@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class GoodsFeignClientFallBack implements GoodsFeignClient{
     @Override
     public Goods findGoodsById(int id) {
-        Goods goods = new Goods(0,"又被降级了...",0);
+        Goods goods = new Goods(0,"consumer降级了...",0);
         return goods;
     }
 }

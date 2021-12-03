@@ -14,6 +14,7 @@
         <module>eureka_server</module>
         <module>eureka_server2</module>
         <module>eureka_server1</module>
+        <module>Hystrix-monitor</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

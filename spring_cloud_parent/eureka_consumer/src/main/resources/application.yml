@@ -21,7 +21,8 @@ EUREKA-PROVIDER: #设置的服务提供方的应用名称
   ribbon:
     NFloadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #策略类
 
-#设置超时时间
+#设置超时时间(默认都是1s)
+# Feign 客户端默认的 ConnectTimeout 和 ReadTimeout 不会被 Ribbon 配置覆盖(使用了feign后该配置无法起作用)
 ribbon:
   ConnectTimeout: 1000 #连接超时时间，毫秒
   ReadTimeout: 3000    #逻辑处理超时时间，毫秒
@@ -31,7 +32,12 @@ logging:
   level:
     com: debug
 
-#开启降级策略
 feign:
+  client:
+    config:
+      default:
+        connectTimeout: 3000
+        readTimeout: 6000
+#开启降级策略
   hystrix:
     enabled: true
