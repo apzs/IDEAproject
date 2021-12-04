@@ -1,0 +1,25 @@
+#config默认端口
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  #spring cloud config
+  cloud:
+    config:
+      server:
+        #git远程仓库地址
+        git:
+          #使用(协议://ip:端口/分支/文件名)访问 (http://localhost:8888/master/config-dev.yml)
+          uri: https://gitee.com/lkhgfdsa/spring-cloud-config.git
+          #username:
+          #password:
+      label: master #分支
+# 将config-server注册到eureka(使其他各模块动态获取config-server的ip)
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+

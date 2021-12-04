@@ -1,0 +1,29 @@
+server:
+  port: 8000
+
+
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true #将当前实例的ip注册到eureka server 中。默认是false注册主机名
+    ip-address: 127.0.0.1 #设置当前实例的ip
+    instanceId: ${eureka.instance.ip-address}:${spring.application.name}:${server.port} #设置web控制台显示的实例id
+    lease-renewal-interval-in-seconds: 30     #每隔30秒发一次心跳包
+    lease-expiration-duration-in-seconds: 90  #90秒未发送心跳包，则服务器关闭未发送心跳包的实例
+
+  client:
+    service-url:
+#      defaultZone: http://eureka_server1:8762/eureka,http://eureka_server3:8762/eureka
+      defaultZone: http://localhost:8761/eureka
+#修改访问http://localhost:8761(需要先启动eureka_server)后该应用的Instances currently registered with Eureka的名字
+#将来需要使用该名称来获取路径
+spring:
+  application:
+    name: eureka-provider
+
+#完成客户端刷新需要暴露服务
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'refresh'

@@ -1,0 +1,13 @@
+#通过config-server模块访问远程创库的配置文件
+#配置config-server的地址
+spring:
+  cloud:
+    config:
+      #uri: http://localhost:8888
+      name: config
+      profile: dev #自动拼接成 config-dev.yml
+      label: master
+      #将config-server注册到eureka上后,可以从注册中心寻找config-server地址(uri: http://localhost:8888就不需要配置了)
+      discovery:
+        enabled: true
+        service-id: config-server

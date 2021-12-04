@@ -1,0 +1,40 @@
+server:
+  port: 80
+spring:
+  application:
+    name: api-gateway-server
+
+  cloud:
+    #网关配置
+    gateway:
+      #路由配置，配置转发规则
+      routes:
+      # id:唯一标识。默认是一个UUID
+      # uri:转发路径
+      # predicates:条件,用于请求网关路径的匹配规则
+      # filters: 局部过滤器
+      #用户输入的http://localhost:80/goods/** 转发到 http://localhost:8000/goods/**
+        - id: eureka-provider
+          uri: http://localhost:8000/
+          predicates:
+            - Path= /goods/**
+
+        - id: eureka-consumer
+          #静态路由
+          ##uri: http://localhost:9000/
+          #动态路由
+          uri: lb://eureka-consumer
+          predicates:
+            - Path= /order/**
+          filters:
+            #通过http://localhost:9000/order/goods2/1直接访问获取不到username
+            #通过http://localhost:80/order/goods2/1可以看到控制台打印zhangsan
+            - AddRequestParameter=username,zhangsan #添加username参数
+      #微服务名称配置
+      discovery:
+        locator:
+          #开启后不仅可以通过原始的http://localhost:80/goods/findOne/1访问
+          #还可以通过http://localhost:80/EUREKA-PROVIDER/goods/findOne/1(默认微服务名称为大写)
+          enabled: true   #设置为true请求路径前可以添加微服务名称
+          #可以通过小写的eureka-provider访问(http://localhost:80/eureka-provider/goods/findOne/1)(但大写的方式不能访问了)
+          lower-case-service-id: true #允许为小写(但大写的方式不能访问了)

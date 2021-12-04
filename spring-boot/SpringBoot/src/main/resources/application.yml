@@ -1,0 +1,92 @@
+#可以创建application.properties文件(使用键值对)
+#还可以创建application.yaml文件(和yml格式一样)
+#扫描顺序是(application.properties)->(application.yml)->(application.yaml)
+#如果后面扫到了与前面相同属性的配置，则后扫到的会忽略
+
+
+server:
+  port: 8080
+  servlet:
+    context-path: /SpringBoot
+
+
+#对象
+person:
+  name: zhangsan
+  age: 21
+#对象行内写法
+person2: {name: zhangsan,age: 22}
+
+#数组
+address:
+  - beijing
+  - shanghai
+#数组的行内写法
+address2: [beijing,shanghai]
+
+#纯量
+msg1: 'hello \n world'    # 单引号内的\n不会被识别为转义字符，会原样输出
+msg2: "hello \n world"
+
+#引用
+name: zhangsan
+person3:
+  name: ${name}
+  age: 23
+
+#配置redis信息
+#spring:
+#  redis:
+#    host: 127.0.0.1
+#    port: 6379
+
+#启用开发环境
+#spring:
+#  profiles:
+#    active: dev
+#或使用虚拟机参数(VM options): -Dspring.profiles.active=test
+#或使用命令行参数(Program arguments): --spring.profiles.active=test
+
+#dataSources
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    需要加spring-boot-admin-starter-client依赖和spring-boot-starter-actuator并在配置文件将所有监控e的ndpoint暴露出来
+#    另一个模块需要加spring-boot-admin-starter-service依赖(spring_boot_server)，并在启动类上加@EnableAdminServer注解
+#    将service模块和client模块启动起来(注意修改端口)
+#    访问spring-boot-admin-starter-service模块的url(http://localhost:9000)
+  boot:
+    admin:
+      client:
+        url: http://localhost:9000
+#  redis:
+#    port: 6666
+
+
+batis:
+  mapper-locations: classpath:com/mapper/*Mapper.xml #mapper映射文件路径
+  type-aliases-package: com.domain
+  #  config-location: 指定mybatis的核心配置文件my
+
+
+#需要加spring-boot-starter-actuator依赖
+#http://localhost:8080/SpringBoot/actuator/health
+#开启健康检查的完整信息
+management:
+  endpoint:
+    health:
+      show-details: always
+#将所有监控的endpoint暴露出来
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+#http://localhost:8080/SpringBoot/actuator/info
+info:
+  name: lisa
+
