@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
+
+    <!--加载配置文件-->
+    <context:property-placeholder location="rabbitmq.properties"/>
+    <!--定义rabbitmq connectionFactory-->
+    <rabbit:connection-factory id="connectionFactory"
+                               host="${rabbitmq.host}"
+                               port="${rabbitmq.port}"
+                               virtual-host="${rabbitmq.virtual-host}"
+                               username="${rabbitmq.username}"
+                               password="${rabbitmq.password}"/>
+
+    <bean id="springQueueListener" class="com.rabbitmq.listener.SpringQueueListener"/>
+    <bean id="springFanoutQueueListener" class="com.rabbitmq.listener.SpringFanoutQueueListener"/>
+    <bean id="springFanoutQueueListener2" class="com.rabbitmq.listener.SpringFanoutQueueListener2"/>
+    <bean id="ackListener" class="com.rabbitmq.ack.AckListener"/>
+    <bean id="qosListener" class="com.rabbitmq.ack.QosListener"/>
+    <bean id="dlxListener" class="com.rabbitmq.ack.DlxListener"/>
+    <bean id="delayListener" class="com.rabbitmq.ack.DelayListener"/>
+
+    <rabbit:listener-container connection-factory="connectionFactory" auto-declare="true" acknowledge="manual" prefetch="2">
+        <!--queue-names="spring_queue"生产者hello world模式-->
+        <rabbit:listener ref="springQueueListener" queue-names="spring_queue"/>
+        <rabbit:listener ref="springFanoutQueueListener" queue-names="spring_fanout_queue1"/>
+        <rabbit:listener ref="springFanoutQueueListener2" queue-names="spring_fanout_queue2"/>
+        <rabbit:listener ref="springFanoutQueueListener2" queue-names="spring_routing_queue1"/>
+        <rabbit:listener ref="springFanoutQueueListener2" queue-names="spring_routing_queue2"/>
+        <rabbit:listener ref="springFanoutQueueListener2" queue-names="spring_topic_queue1"/>
+        <rabbit:listener ref="springFanoutQueueListener2" queue-names="spring_topic_queue2"/>
+        <rabbit:listener ref="ackListener" queue-names="confirm_queue"/>
+        <rabbit:listener ref="qosListener" queue-names="qos_queue"/>
+        <rabbit:listener ref="dlxListener" queue-names="dlx2_queue"/>
+        <!--************监听死信队列，而不是provider发消息发送到的队列************-->
+        <rabbit:listener ref="delayListener" queue-names="delay_dead_queue"/>
+    </rabbit:listener-container>
+</beans>

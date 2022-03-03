@@ -123,3 +123,293 @@ Version: '5.5.40'  socket: ''  port: 3306  MySQL Community Server (GPL)
 211128 17:40:51 [Note] Event Scheduler: Loaded 0 events
 211128 17:40:51 [Note] A:\MySQL\bin\mysqld: ready for connections.
 Version: '5.5.40'  socket: ''  port: 3306  MySQL Community Server (GPL)
+211211 12:57:02 [Note] A:\MySQL\bin\mysqld: Normal shutdown
+
+211211 12:57:02 [Note] Event Scheduler: Purging the queue. 0 events
+211211 12:57:02  InnoDB: Starting shutdown...
+211211 12:57:03  InnoDB: Shutdown completed; log sequence number 2297775
+211211 12:57:03 [Note] A:\MySQL\bin\mysqld: Shutdown complete
+
+211211 12:57:34 [Note] Plugin 'FEDERATED' is disabled.
+211211 12:57:34 InnoDB: The InnoDB memory heap is disabled
+211211 12:57:34 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+211211 12:57:34 InnoDB: Compressed tables use zlib 1.2.3
+211211 12:57:34 InnoDB: Initializing buffer pool, size = 47.0M
+211211 12:57:34 InnoDB: Completed initialization of buffer pool
+211211 12:57:34 InnoDB: highest supported file format is Barracuda.
+211211 12:57:35  InnoDB: Waiting for the background threads to start
+211211 12:57:36 InnoDB: 5.5.40 started; log sequence number 2297775
+211211 12:57:36 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+211211 12:57:36 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+211211 12:57:36 [Note] Server socket created on IP: '0.0.0.0'.
+211211 12:57:36 [Note] Event Scheduler: Loaded 0 events
+211211 12:57:36 [Note] A:\MySQL\bin\mysqld: ready for connections.
+Version: '5.5.40'  socket: ''  port: 3306  MySQL Community Server (GPL)
+211219 16:39:28 [Note] A:\MySQL\bin\mysqld: Normal shutdown
+
+211219 16:39:28 [Note] Event Scheduler: Purging the queue. 0 events
+211219 16:39:28  InnoDB: Starting shutdown...
+211219 16:39:29  InnoDB: Shutdown completed; log sequence number 2330181
+211219 16:39:29 [Note] A:\MySQL\bin\mysqld: Shutdown complete
+
+211219 16:39:57 [Note] Plugin 'FEDERATED' is disabled.
+211219 16:39:57 InnoDB: The InnoDB memory heap is disabled
+211219 16:39:57 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+211219 16:39:57 InnoDB: Compressed tables use zlib 1.2.3
+211219 16:39:57 InnoDB: Initializing buffer pool, size = 47.0M
+211219 16:39:57 InnoDB: Completed initialization of buffer pool
+211219 16:39:57 InnoDB: highest supported file format is Barracuda.
+211219 16:39:57  InnoDB: Waiting for the background threads to start
+211219 16:39:59 InnoDB: 5.5.40 started; log sequence number 2330181
+211219 16:39:59 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+211219 16:39:59 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+211219 16:39:59 [Note] Server socket created on IP: '0.0.0.0'.
+211219 16:39:59 [Note] Event Scheduler: Loaded 0 events
+211219 16:39:59 [Note] A:\MySQL\bin\mysqld: ready for connections.
+Version: '5.5.40'  socket: ''  port: 3306  MySQL Community Server (GPL)
+211219 22:44:48 [Note] A:\MySQL\bin\mysqld: Normal shutdown
+
+211219 22:44:48 [Note] Event Scheduler: Purging the queue. 0 events
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 139  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 138  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 137  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 136  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 135  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 134  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 133  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 132  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 131  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 130  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 129  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 128  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 127  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 126  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 125  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 124  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 123  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 122  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 121  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 120  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 119  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 118  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 117  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 116  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 115  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 114  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 113  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 112  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 111  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 110  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 109  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 108  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 107  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 106  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 105  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 104  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 103  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 102  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 101  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 100  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 99  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 98  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 97  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 96  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 95  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 94  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 93  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 92  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 91  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 90  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 89  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 88  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 87  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 86  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 85  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 84  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 83  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 82  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 81  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 80  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 79  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 78  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 77  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 76  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 75  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 74  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 73  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 72  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 71  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 70  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 69  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 68  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 67  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 66  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 65  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 64  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 63  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 62  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 61  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 60  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 59  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 58  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 57  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 56  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 55  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 54  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 53  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 52  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 51  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 50  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 49  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 48  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 47  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 46  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 45  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 44  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 43  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 42  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 41  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 40  user: 'root'
+
+211219 22:44:50 [Warning] A:\MySQL\bin\mysqld: Forcing close of thread 39  user: 'root'
+
+211219 22:44:50  InnoDB: Starting shutdown...
+211219 22:44:51  InnoDB: Shutdown completed; log sequence number 2371008
+211219 22:44:51 [Note] A:\MySQL\bin\mysqld: Shutdown complete
+
+211219 22:44:53 [Note] Plugin 'FEDERATED' is disabled.
+211219 22:44:53 InnoDB: The InnoDB memory heap is disabled
+211219 22:44:53 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+211219 22:44:53 InnoDB: Compressed tables use zlib 1.2.3
+211219 22:44:53 InnoDB: Initializing buffer pool, size = 47.0M
+211219 22:44:53 InnoDB: Completed initialization of buffer pool
+211219 22:44:53 InnoDB: highest supported file format is Barracuda.
+211219 22:44:53  InnoDB: Waiting for the background threads to start
+211219 22:44:54 InnoDB: 5.5.40 started; log sequence number 2371008
+211219 22:44:54 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+211219 22:44:54 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+211219 22:44:54 [Note] Server socket created on IP: '0.0.0.0'.
+211219 22:44:54 [Note] Event Scheduler: Loaded 0 events
+211219 22:44:54 [Note] A:\MySQL\bin\mysqld: ready for connections.
+Version: '5.5.40'  socket: ''  port: 3306  MySQL Community Server (GPL)
+211224  0:45:16 [Note] Plugin 'FEDERATED' is disabled.
+211224  0:45:16 InnoDB: The InnoDB memory heap is disabled
+211224  0:45:16 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+211224  0:45:16 InnoDB: Compressed tables use zlib 1.2.3
+211224  0:45:16 InnoDB: Initializing buffer pool, size = 47.0M
+211224  0:45:16 InnoDB: Completed initialization of buffer pool
+211224  0:45:16 InnoDB: highest supported file format is Barracuda.
+InnoDB: The log sequence number in ibdata files does not match
+InnoDB: the log sequence number in the ib_logfiles!
+211224  0:45:16  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+211224  0:45:16  InnoDB: Waiting for the background threads to start
+211224  0:45:17 InnoDB: 5.5.40 started; log sequence number 2491517
+211224  0:45:17 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+211224  0:45:17 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+211224  0:45:17 [Note] Server socket created on IP: '0.0.0.0'.
+211224  0:45:17 [Note] Event Scheduler: Loaded 0 events
+211224  0:45:17 [Note] A:\MySQL\bin\mysqld: ready for connections.
+Version: '5.5.40'  socket: ''  port: 3306  MySQL Community Server (GPL)

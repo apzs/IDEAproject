@@ -1,6 +1,6 @@
 package Demo;
 
-import utls.JDBCUtils;
+import utils.JDBCUtils;
 
 import java.sql.Connection;
 import java.sql.SQLException;

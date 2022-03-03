@@ -78,7 +78,7 @@ public class response {
     }
 
 //    http://localhost:8080/login/response_save9.jsp
-    //在spring-mvc.xml中配置全局过滤的filter,解决中文乱码问题
+    //在web.xml中配置全局过滤的filter,解决中文乱码问题
     @RequestMapping("/save9")
     @ResponseBody
     public void save9(VO vo){

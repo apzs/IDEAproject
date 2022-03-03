@@ -1,6 +1,6 @@
 package Demo;
 
-import utls.DruidUtils;
+import utils.DruidUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

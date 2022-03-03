@@ -1,4 +1,4 @@
-package utls;
+package utils;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 

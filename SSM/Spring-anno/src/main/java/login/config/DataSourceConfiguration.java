@@ -1,5 +1,6 @@
 package login.config;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -23,10 +24,10 @@ public class DataSourceConfiguration {
     //将返回的对象注入Spring容器
     @Bean("dataSource")
     public DataSource getDataSource() throws PropertyVetoException {
-        ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        dataSource.setDriverClass(driver);
-        dataSource.setJdbcUrl(url);
-        dataSource.setUser(userName);
+        DruidDataSource dataSource = new DruidDataSource();
+        dataSource.setDriverClassName(driver);
+        dataSource.setUrl(url);
+        dataSource.setUsername(userName);
         dataSource.setPassword(password);
         return dataSource;
     }

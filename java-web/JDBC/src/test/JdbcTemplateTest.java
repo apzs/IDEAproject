@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import utls.DruidUtils;
+import utils.DruidUtils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

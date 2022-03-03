@@ -1,7 +1,7 @@
 package Demo;
 
 import org.springframework.jdbc.core.JdbcTemplate;
-import utls.DruidUtils;
+import utils.DruidUtils;
 
 /**
   *@Data:2021/6/13
