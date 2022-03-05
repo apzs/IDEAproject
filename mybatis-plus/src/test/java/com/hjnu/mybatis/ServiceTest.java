@@ -54,16 +54,33 @@ public class ServiceTest {
         System.out.println(b);
     }
 
+    /**
+     * 根据id修改
+     */
     @Test
     public void update(){
-        //根据id添加
+        //根据id修改
         User u1 = new User(8L, "lisa", 32, "322");
         boolean b = userService.updateById(u1);
         System.out.println(b);
-        //根据id批量添加
+        //根据id批量修改
         List<User> list = new ArrayList<>();
         list.add(new User(2L,"ee",24,"ww"));
         list.add(new User(3L,"eww",32,"eed"));
         userService.updateBatchById(list);
+    }
+
+    @Test
+    public void remove(){
+        //根据id删除
+        User u1 = new User(14L);
+        userService.removeById(u1);
+        //根据id批量删除
+        List<User> list = new ArrayList<>();
+        list.add(new User(2L));
+        list.add(new User(3L));
+        boolean b = userService.removeByIds(list);
+        //boolean b = userService.removeBatchByIds(list);
+        System.out.println(b);
     }
 }

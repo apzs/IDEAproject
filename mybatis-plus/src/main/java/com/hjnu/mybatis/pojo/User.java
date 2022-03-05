@@ -1,9 +1,6 @@
 package com.hjnu.mybatis.pojo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 
 /**
  * @author 无名氏
@@ -34,7 +31,18 @@ public class User {
     public String name;
 
     public Integer age;
+
     public String email;
+
+    /**
+     * @TableLogic 如果加上该注解，则在执行删除操作时，会将该字段的值置为1，不删除数据
+     *  UPDATE t_user SET is_deleted=1 WHERE uid=? AND is_deleted=0
+     *  在执行查询操作时自动加上is_deleted=0
+     *  SELECT uid AS id,nickname AS name,age,email,is_deleted FROM t_user WHERE uid IN ( ? , ? , ? , ? ) AND is_deleted=0
+     */
+    @TableLogic
+    public Integer isDeleted;
+
 
     public User() {
     }
@@ -82,6 +90,14 @@ public class User {
         this.email = email;
     }
 
+    public Integer getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Integer isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -89,6 +105,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", email='" + email + '\'' +
+                ", isDeleted=" + isDeleted +
                 '}';
     }
 }
