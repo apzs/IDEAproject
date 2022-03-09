@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hjnu.mybatis.mapper.UserMapper">
+
+    <!--如果接口参数名称与#{}内的名称一致,可以不写parameterType="xxx"-->
+    <select id="findByAge" parameterType="int" resultType="user">
+       select uid,nickname,age,email,is_deleted from mybatis_plus.t_user where age >= #{age}
+    </select>
+
+    <!--使用mybatis-plus的分页插件-->
+    <select id="findByPage2" resultType="user">
+        SELECT uid AS id,nickname AS name,age,email,is_deleted FROM mybatis_plus.t_user WHERE age > #{age}
+    </select>
+
+</mapper>

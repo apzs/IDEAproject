@@ -1,6 +1,7 @@
 package com.hjnu.mybatis.pojo;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.hjnu.mybatis.enums.SexEnum;
 
 /**
  * @author 无名氏
@@ -31,6 +32,8 @@ public class User {
     public String name;
 
     public Integer age;
+
+    public SexEnum sex;
 
     public String email;
 
@@ -96,6 +99,14 @@ public class User {
 
     public void setIsDeleted(Integer isDeleted) {
         this.isDeleted = isDeleted;
+    }
+
+    public SexEnum getSex() {
+        return sex;
+    }
+
+    public void setSex(SexEnum sex) {
+        this.sex = sex;
     }
 
     @Override

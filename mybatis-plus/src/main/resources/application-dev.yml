@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatis_plus
+    username: root
+    password: root
+mybatis-plus:
+  configuration:
+    #设置日志类型
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      #设置实体类对应的数据库表统一前缀(User类对应t_user数据库表)
+      table-prefix: t_
+      #设置主键生成策略  如果配置类和注解同时设置，则注解生效(@TableId(type = IdType.AUTO))
+      id-type: assign_uuid
+  #映射文件路径路径
+  mapper-locations: classpath*:/mapper/**/*.xml
+  #实体类别名
+  type-aliases-package: com.hjnu.mybatis.pojo
+  # 配置扫描通用枚举
+  type-enums-package: com.hjnu.mybatis.enums

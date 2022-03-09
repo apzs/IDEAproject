@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    dynamic:
+      # 设置默认的数据源或者数据源组,默认值即为master
+      primary: master
+      # 严格匹配数据源,默认false.true未匹配到指定数据源时抛异常,false使用默认数据源
+      strict: false
+      datasource:
+        master:
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/mybatis_plus
+          username: root
+          password: root
+        slave_1:
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/mybatis_plus2
+          username: root
+          password: root
+mybatis-plus:
+  #实体类别名
+  type-aliases-package: com.hjnu.mybatis.pojo
+  type-enums-package: com.hjnu.mybatis.enums
+  global-config:
+    db-config:
+    #表前缀
+      table-prefix: t_
+  configuration:
+    #日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
